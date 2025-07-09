@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>💖 Love Me or Not 💖</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding-top: 100px;
+    }
+    input, button {
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 15px;
+      border: none;
+      margin-top: 10px;
+    }
+    button {
+      background-color: #ff69b4;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>💘 What's your name, cutie? 💘</h1>
+  <input type="text" id="name" placeholder="Enter your name 💌" required />
+  <br/>
+  <button onclick="saveNameAndGo()">Let's Go 👉</button>
+
+  <script>
+    function saveNameAndGo() {
+      const name = document.getElementById("name").value.trim();
+      if (name !== "") {
+        localStorage.setItem("visitorName", name);
+        window.location.href = "index.html"; // your Love Me or Not page
+      } else {
+        alert("Please enter your name! 😘");
+      }
+    }
+  </script>
+</body>
+</html>
