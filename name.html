@@ -29,15 +29,15 @@
   <button onclick="saveNameAndGo()">Let's Go 👉</button>
 
   <script>
-    function saveNameAndGo() {
-      const name = document.getElementById("name").value.trim();
-      if (name !== "") {
-        localStorage.setItem("visitorName", name);
-        window.location.href = "index.html"; // your Love Me or Not page
-      } else {
-        alert("Please enter your name! 😘");
-      }
+  function saveNameAndGo() {
+    var name = document.getElementById("nameInput").value.trim();
+    if (name) {
+      localStorage.setItem("visitorName", name);
+      window.location.href = "index.html"; // ya tumhara next page
+    } else {
+      alert("Please enter your name first!");
     }
+  }
   </script>
 </body>
 </html>
